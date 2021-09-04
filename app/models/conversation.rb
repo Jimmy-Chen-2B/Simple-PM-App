@@ -14,7 +14,7 @@ class Conversation < ApplicationRecord
     where(author_id: sender_id, receiver_id: receiver_id).or(where(author_id: receiver_id, receiver_id: sender_id)).limit(1)
   end
 
-  def with
+  def with(current_user)
     author == current_user ? receiver : author
   end
 
