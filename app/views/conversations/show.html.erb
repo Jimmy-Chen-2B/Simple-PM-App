@@ -5,12 +5,16 @@
     <%= render @conversation.personal_messages %>
   </div>
 
-  <%= form_for @personal_message do |form| %>
-    <%= form.hidden_field :conversation_id, value: @conversation.id %>
-    <%= form.label :body, "訊息" %>
-    <%= form.text_field :body %>
+  <%= form_for @personal_message do |f| %>
 
-    <%= form.submit %>
+    <%= hidden_field_tag 'conversation_id', @conversation.id %>
+
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+
+    <%= f.submit %>
   <% end %>
 </div>
+
+
 
